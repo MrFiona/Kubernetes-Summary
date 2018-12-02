@@ -38,7 +38,8 @@ Master 管理集群，而 节点 用于托管正在运行的应用程序。
 
 ### Pod
 Pod 是一组紧密关联的容器集合，它们共享 PID、IPC、Network 和 UTS namespace，是Kubernetes 调度的基本单位。Pod 的设计理念是支持多个容器在一个 Pod 中共享网络和文件系统，可以通过进程间通信和文件共享这种简单高效的方式组合完成服务。
-![k8s pod](./images/k8s-pod.png)
+
+![k8s pod](/assets/k8s-pod.png)
 ​​
 在 Kubernetes 中，所有对象都使用 manifest（yaml或json）来定义，比如一个简单的 nginx 服务可以定义为 nginx.yaml，它包含一个镜像为 nginx 的容器：
 ```yaml
