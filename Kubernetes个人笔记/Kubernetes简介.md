@@ -28,7 +28,8 @@ $ docker logs -f rancher
 
 ## 集群
 集群是一组节点，这些节点可以是物理服务器或者虚拟机，在他上面安装了Kubernetes环境。
-​​![k8s cluster](./images/k8s-cluster.png)
+
+![k8s cluster](/assets/k8s-cluster.png)
 
 **Master 负责管理集群**, master 协调集群中的所有活动，例如调度应用程序、维护应用程序的所需状态、扩展应用程序和滚动更新。
 **节点是 Kubernetes 集群中的工作机器，可以是物理机或虚拟机。**每个工作节点都有一个 kubelet，它是管理节点并与 Kubernetes Master 节点进行通信的代理。节点上还应具有处理容器操作的容器运行时，例如 [Docker](https://www.docker.com/) 或 [rkt](https://coreos.com/rkt/)。一个 Kubernetes 工作集群至少有三个节点。
