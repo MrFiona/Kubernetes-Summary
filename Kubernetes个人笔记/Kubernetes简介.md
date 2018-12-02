@@ -15,7 +15,8 @@ Kubernetes 是 Google 团队发起的一个开源项目，它的目标是管理�
 $ docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher:v2.0.0 # 查看日志
 $ docker logs -f rancher
 ```
-![rancher](./images/k8s-rancher.png)
+
+![rancher](/assets/k8s-rancher.png)
 
 3.Docker for MAC/Windows（推荐）/[minikube](https://github.com/kubernetes/minikube)/（本地）
 
