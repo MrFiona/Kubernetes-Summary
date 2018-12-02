@@ -87,4 +87,5 @@ Deployment 确保任意时间都有指定数量的 Pod“副本”在运行。�
 Service 是应用服务的抽象，通过 labels 为应用提供负载均衡和服务发现。匹配 labels 的Pod IP 和端口列表组成 endpoints，由 kube-proxy 负责将服务 IP 负载均衡到这些endpoints 上。
 
 每个 Service 都会自动分配一个 cluster IP（仅在集群内部可访问的虚拟地址）和 DNS 名，其他容器可以通过该地址或 DNS 来访问服务，而不需要了解后端容器的运行。
-![k8s service](./images/k8s-service.png)
+
+![k8s-service](/assets/k8s-service.png)
