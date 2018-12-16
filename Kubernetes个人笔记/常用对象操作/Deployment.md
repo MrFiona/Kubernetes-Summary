@@ -253,7 +253,7 @@ spec:                            #spec 部分是该 Deployment 的规格说明
       maxSurge: 1      #滚动升级时会先启动1个pod
       maxUnavailable: 1 #滚动升级时允许的最大Unavailable的pod个数
   template:                      #template 定义 Pod 的模板，这是配置文件的重要部分
-    metadata:
+    metadata:                    #metadata 定义 Pod 的元数据，至少要定义一个 label。label 的 key 和 value 可以任意指定
       labels:
         app: cango-demo  #模板名称必填
     sepc: #定义容器模板，该模板可以包含多个容器
