@@ -59,7 +59,7 @@ spec:
 
 另外需要了解的是如果最开始选择的 Pod 没有响应，iptables 代理能够自动地重试另一个 Pod，所以它需要依赖 readiness probes。
 
-![service iptables overview](./images/services-iptables-overview.svg)
+![service iptables overview](/assets/services-iptables-overview.PNG)
 
 
 ## Service 类型
