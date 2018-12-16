@@ -18,7 +18,7 @@
         * [Job/Cronjob](Kubernetes个人笔记/常用对象操作/Job/Cronjob.md)
         * [Service](Kubernetes个人笔记/常用对象操作/Job/Service.md)
         * [ConfigMap](Kubernetes个人笔记/常用对象操作/Job/ConfigMap.md)
-
+        * [Secret](Kubernetes个人笔记/常用对象操作/Job/Secret.md)
 
 
 
