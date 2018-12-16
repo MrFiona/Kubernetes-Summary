@@ -21,7 +21,7 @@
 
 
 ## 创建
-![Deployment结构](images/deployment.png)
+![Deployment结构](/assets/deployment.png)
 可以看出一个Deployment拥有多个Replica Set，而一个Replica Set拥有一个或多个Pod。一个Deployment控制多个rs主要是为了支持回滚机制，每当Deployment操作时，Kubernetes会重新生成一个Replica Set并保留，以后有需要的话就可以回滚至之前的状态。
 下面创建一个Deployment，它创建了一个Replica Set来启动3个nginx pod，yaml文件如下：
 ```yaml
