@@ -212,14 +212,24 @@ AccessModes 是用来对 PV 进行访问模式的设置，用于描述用户应�
 
 
 ### persistentVolumeReclaimPolicy（回收策略）
+
+当 PV 不再需要时，可通过删除 PVC 回收。
+
 我这里指定的 PV 的回收策略为 Recycle，目前 PV 支持的策略有三种：
 
 * Retain（保留）- 保留数据，需要管理员手工清理数据
 * Recycle（回收）- 清除 PV 中的数据，效果相当于执行 rm -rf /thevoluem/*
 * Delete（删除）- 与 PV 相连的后端存储完成 volume 的删除操作，当然这常见于云服务商的存储服务，比如 ASW EBS。
 
-
 不过需要注意的是，目前只有 NFS 和 HostPath 两种类型支持回收策略。当然一般来说还是设置为 Retain 这种策略保险一点。
+
+![pv-1](/assets/pv-1.PNG)
+
+当 PVC mypvc1 被删除后，我们发现 Kubernetes 启动了一个新 Pod recycler-for-mypv1，这个 Pod 的作用就是清除 PV mypv1 的数据。此时 mypv1 的状态为 Released，表示已经解除了与 mypvc1 的 Bound，正在清除数据，不过此时还不可用。
+
+当数据清除完毕，mypv1 的状态重新变为 Available，此时则可以被新的 PVC 申请。
+
+![pv-1](/assets/pv-2.PNG)
 
 
 ### 状态
