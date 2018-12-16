@@ -319,6 +319,8 @@ spec:                            #spec 部分是该 Deployment 的规格说明
           - name: example-volume-config  #高级用法第1种，将ConfigMap的log-script,backup-script分别挂载到/etc/config目录下的一个相对路径path/to/...下，如果存在同名文件，直接覆盖。
             mountPath: /etc/config       
           - name: rbd-pvc                #高级用法第2中，挂载PVC(PresistentVolumeClaim)
+      nodeSelector:
+        disktype: ssd
 
 #使用volume将ConfigMap作为文件或目录直接挂载，其中每一个key-value键值对都会生成一个文件，key为文件名，value为内容，
   volumes:  # 定义磁盘给上面volumeMounts挂载
