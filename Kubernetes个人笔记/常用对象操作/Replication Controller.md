@@ -18,7 +18,7 @@
 * Deployment：可以更加方便的管理`Pod`和`Replica Set`
 
 
-### Replication Controller（RC）
+## Replication Controller（RC）
 `Replication Controller`简称`RC`，`RC`是`Kubernetes`系统中的核心概念之一，简单来说，`RC`可以保证在任意时间运行`Pod`的副本数量，能够保证`Pod`总是可用的。如果实际`Pod`数量比指定的多那就结束掉多余的，如果实际数量比指定的少就新启动一些`Pod`，当`Pod`失败、被删除或者挂掉后，`RC`都会去自动创建新的`Pod`来保证副本数量，所以即使只有一个`Pod`，我们也应该使用`RC`来管理我们的`Pod`。
 
 我们想想如果现在我们遇到上面的问题的话，可能除了第一个不能做到完全自动化，其余的我们是不是都不用担心了，运行`Pod`的节点挂了，`RC`检测到`Pod`失败了，就会去合适的节点重新启动一个`Pod`就行，不需要我们手动去新建一个`Pod`了。如果是第一种情况的话在活动开始之前我们给`Pod`指定10个副本，结束后将副本数量改成2，这样是不是也远比我们手动去启动、手动去关闭要好得多，而且我们后面还会给大家介绍另外一种资源对象`HPA`可以根据资源的使用情况来进行自动扩缩容，这样以后遇到这种情况，我们就真的可以安心的去睡觉了。
@@ -94,7 +94,7 @@ $ kubectl rolling-update rc-demo -f rc-demo.yaml
 如果升级完成后出现了新的问题，想要一键回滚到上一个版本的话，使用`RC`只能用同样的方法把镜像地址替换成之前的，然后重新滚动升级。
 
 
-### Replication Set（RS）
+## Replication Set（RS）
 `Replication Set`简称`RS`，随着`Kubernetes`的高速发展，官方已经推荐我们使用`RS`和`Deployment`来代替`RC`了，实际上`RS`和`RC`的功能基本一致，目前唯一的一个区别就是`RC`只支持基于等式的`selector`（env=dev或environment!=qa），但`RS`还支持基于集合的`selector`（version in (v1.0, v2.0)），这对复杂的运维管理就非常方便了。
 
 `kubectl`命令行工具中关于`RC`的大部分命令同样适用于我们的`RS`资源对象。不过我们也很少会去单独使用`RS`，它主要被`Deployment`这个更加高层的资源对象使用，除非用户需要自定义升级功能或根本不需要升级`Pod`，在一般情况下，我们推荐使用`Deployment`而不直接使用`Replica Set`。
