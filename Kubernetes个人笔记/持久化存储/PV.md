@@ -231,6 +231,39 @@ AccessModes 是用来对 PV 进行访问模式的设置，用于描述用户应�
 
 ![pv-1](/assets/pv-2.PNG)
 
+/nfsdata/pv1 中的 hello 文件已经被删除了。
+
+因为 PV 的回收策略设置为 Recycle，所以数据会被清除，但这可能不是我们想要的结果。如果我们希望保留数据，可以将策略设置为 Retain。
+
+![pv-1](/assets/pv-3.PNG)
+
+通过 kubectl apply 更新 PV：
+
+![pv-1](/assets/pv-4.PNG)
+
+回收策略已经变为 Retain，通过下面步骤验证其效果：
+
+![pv-1](/assets/pv-5.PNG)
+
+① 重新创建 mypvc1。
+
+② 在 mypv1 中创建文件 hello。
+
+③ mypv1 状态变为 Released。
+
+④ Kubernetes 并没有启动 Pod recycler-for-mypv1。
+
+⑤ PV 中的数据被完整保留。
+
+虽然 mypv1 中的数据得到了保留，但其 PV 状态会一直处于 Released，不能被其他 PVC 申请。为了重新使用存储资源，可以删除并重新创建 mypv1。删除操作只是删除了 PV 对象，存储空间中的数据并不会被删除。
+
+![pv-1](/assets/pv-6.PNG)
+
+新建的 mypv1 状态为 Available，已经可以被 PVC 申请。
+
+PV 还支持 Delete 的回收策略，会删除 PV 在 Storage Provider 上对应存储空间。NFS 的 PV 不支持 Delete，支持 Delete 的 Provider 有 AWS EBS、GCE PD、Azure Disk、OpenStack Cinder Volume 等。
+
+
 
 ### 状态
 
