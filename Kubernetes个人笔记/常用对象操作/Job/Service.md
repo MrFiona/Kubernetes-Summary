@@ -140,4 +140,41 @@ Kubernetes Service 从逻辑上代表了一组 Pod，具体是哪些 Pod 则是�
 
 ![挑选pod](/assets/640-1.webp)
 
+Pod 分配了各自的 IP，这些 IP 只能被 Kubernetes Cluster 中的容器和节点访问。
+
+![挑选pod](/assets/640-2.webp)
+
+接下来创建 Service，其配置文件如下：
+
+![挑选pod](/assets/640-3.webp)
+
+① v1 是 Service 的 apiVersion。
+
+② 指明当前资源的类型为 Service。
+
+③ Service 的名字为 httpd-svc。
+
+④ selector 指明挑选那些 label 为 run: httpd 的 Pod 作为 Service 的后端。
+
+⑤ 将 Service 的 8080 端口映射到 Pod 的 80 端口，使用 TCP 协议。
+
+执行 kubectl apply 创建 Service httpd-svc。
+
+![挑选pod](/assets/640-4.webp)
+
+httpd-svc 分配到一个 CLUSTER-IP 10.99.229.179。可以通过该 IP 访问后端的 httpd Pod。
+
+![挑选pod](/assets/640-5.webp)
+
+根据前面的端口映射，这里要使用 8080 端口。另外，除了我们创建的 httpd-svc，还有一个 Service kubernetes，Cluster 内部通过这个 Service 访问 kubernetes API Server。
+
+通过 kubectl describe 可以查看 httpd-svc 与 Pod 的对应关系。
+
+![挑选pod](/assets/640-6.webp)
+
+Endpoints 罗列了三个 Pod 的 IP 和端口。我们知道 Pod 的 IP 是在容器中配置的，那么 Service 的 Cluster IP 又是配置在哪里的呢？CLUSTER-IP 又是如何映射到 Pod IP 的呢？
+
+答案是 iptables，我们下节讨论。
+
+
 
