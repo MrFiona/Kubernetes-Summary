@@ -320,7 +320,7 @@ spec:                            #spec 部分是该 Deployment 的规格说明
             mountPath: /etc/config       
           - name: rbd-pvc                #高级用法第2中，挂载PVC(PresistentVolumeClaim)
        nodeSelector:
-         disktype: ssd
+         disktype: ssd              #在 Pod 模板的 spec 里通过 nodeSelector 指定将此 Pod 部署到具有 label disktype=ssd 的 Node 上
 
 #使用volume将ConfigMap作为文件或目录直接挂载，其中每一个key-value键值对都会生成一个文件，key为文件名，value为内容，
   volumes:  # 定义磁盘给上面volumeMounts挂载
