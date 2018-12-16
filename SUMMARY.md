@@ -15,6 +15,13 @@
         * [Replication Controller](Kubernetes个人笔记/常用对象操作/Replication Controller.md)
         * [Deployment](Kubernetes个人笔记/常用对象操作/Deployment.md)
         * [Pod 自动扩缩容](Kubernetes个人笔记/常用对象操作/Pod 自动扩缩容.md)
+        * [Job/Cronjob](Kubernetes个人笔记/常用对象操作/Job/Cronjob.md)
+
+
+
+
+
+
 
 
 
