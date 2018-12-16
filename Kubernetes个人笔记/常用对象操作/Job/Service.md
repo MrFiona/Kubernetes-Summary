@@ -209,3 +209,64 @@ iptables 将访问 Service 的流量转发到后端 Pod，而且使用类似轮�
 
 ![挑选pod](/assets/service-5.PNG)
 
+### 外网访问 Service
+
+除了 Cluster 内部可以访问 Service，很多情况我们也希望应用的 Service 能够暴露给 Cluster 外部。Kubernetes 提供了多种类型的 Service，默认是 ClusterIP。
+
+#### ClusterIP 
+Service 通过 Cluster 内部的 IP 对外提供服务，只有 Cluster 内的节点和 Pod 可访问，这是默认的 Service 类型，前面实验中的 Service 都是 ClusterIP。
+
+#### NodePort 
+Service 通过 Cluster 节点的静态端口对外提供服务。Cluster 外部可以通过 <NodeIP>:<NodePort> 访问 Service。
+
+#### LoadBalancer 
+Service 利用 cloud provider 特有的 load balancer 对外提供服务，cloud provider 负责将 load balancer 的流量导向 Service。目前支持的 cloud provider 有 GCP、AWS、Azur 等。
+
+下面我们来实践 NodePort，Service httpd-svc 的配置文件修改如下：
+
+![挑选pod](/assets/service-6.PNG)
+
+添加 type: NodePort，重新创建 httpd-svc。
+
+![挑选pod](/assets/service-7.PNG)
+
+Kubernetes 依然会为 httpd-svc 分配一个 ClusterIP，不同的是：
+
+- EXTERNAL-IP 为 nodes，表示可通过 Cluster 每个节点自身的 IP 访问 Service。
+
+- PORT(S) 为 8080:32312。8080 是 ClusterIP 监听的端口，32312 则是节点上监听的端口。Kubernetes 会从 30000-32767 中分配一个可用的端口，每个节点都会监听此端口并将请求转发给 Service。
+
+![挑选pod](/assets/service-8.PNG)
+
+下面测试 NodePort 是否正常工作。
+
+![挑选pod](/assets/service-9.PNG)
+
+通过三个节点 IP + 32312 端口都能够访问 httpd-svc。
+
+Kubernetes 是如何将 `<NodeIP>:<NodePort>` 映射到 Pod 的呢？
+
+与 ClusterIP 一样，也是借助了 iptables。与 ClusterIP 相比，每个节点的 iptables 中都增加了下面两条规则：
+
+![挑选pod](/assets/service-10.PNG)
+
+规则的含义是：访问当前节点 32312 端口的请求会应用规则 KUBE-SVC-RL3JAE4GN7VOGDGP，内容为：
+
+![挑选pod](/assets/service-11.PNG)
+
+其作用就是负载均衡到每一个 Pod。
+
+NodePort 默认是的随机选择，不过我们可以用 nodePort 指定某个特定端口。
+
+![挑选pod](/assets/service-12.PNG)
+
+现在配置文件中就有三个 Port 了：
+nodePort 是节点上监听的端口。
+port 是 ClusterIP 上监听的端口。
+targetPort 是 Pod 监听的端口即容器的服务端口。
+
+最终，Node 和 ClusterIP 在各自端口上接收到的请求都会通过 iptables 转发到 Pod 的 targetPort。
+
+应用新的 nodePort 并验证：
+
+
