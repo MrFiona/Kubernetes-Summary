@@ -23,6 +23,7 @@
         * [DaemonSet/StatefulSet的使用](Kubernetes个人笔记/常用对象操作/DaemonSet/StatefulSet的使用.md)
     * [持久化存储](Kubernetes个人笔记/持久化存储.md)
         * [emptyDir](Kubernetes个人笔记/持久化存储/emptyDir.md)
+        * [hostPath Volume](Kubernetes个人笔记/持久化存储/hostPath Volume.md)
         * [PV](Kubernetes个人笔记/持久化存储/PV.md)
         * [PVC](Kubernetes个人笔记/持久化存储/PVC.md)
         * [StorageClass](Kubernetes个人笔记/持久化存储/StorageClass.md)
