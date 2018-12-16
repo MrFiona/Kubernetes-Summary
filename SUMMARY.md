@@ -8,6 +8,7 @@
     * [深入理解pod](Kubernetes个人笔记/深入理解pod.md)
         * [YAML文件](Kubernetes个人笔记/深入理解pod/YAML文件.md)
         * [健康检查](Kubernetes个人笔记/深入理解pod/健康检查.md)
+        * [初始化容器](Kubernetes个人笔记/深入理解pod/初始化容器.md)
 
 
     
