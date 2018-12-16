@@ -194,9 +194,8 @@ KUBE-SVC-PG7U6NWYNWEVV50B 规则如下：
 
 ![挑选pod](/assets/service2.PNG)
 
-- 1/3 的概率跳转到规则 KUBE-SEP-C5KB52P4BBJQ35PH。
-- 1/3 的概率（剩下 2/3 的一半）跳转到规则 KUBE-SEP-HGVKQQZZCF7RV4IT。
-- 1/3 的概率跳转到规则 KUBE-SEP-XE25WGVXLHEIRVO5。
+- 1/2 的概率跳转到规则 KUBE-SEP-NXUPZSXECK45VXWX。
+- 1/2 的概率跳转到规则 KUBE-SEP-NFFTFQ5CNTTL2FEL。
 
 上面三个跳转的规则如下：
 
