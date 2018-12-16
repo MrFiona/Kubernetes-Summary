@@ -182,7 +182,16 @@ Service Cluster IP 是一个虚拟 IP，是由 Kubernetes 节点上的 iptables 
 
 可以通过 iptables-save 命令打印出当前节点的 iptables 规则，因为输出较多，这里只截取与 httpd-svc Cluster IP 10.99.229.179 相关的信息：
 
-![挑选pod](/assets/640-7webp.webp)
+![挑选pod](/assets/service-1.PNG)
+
+这两条规则的含义是：
+
+  - 如果 Cluster 内的 Pod（源地址来自 10.244.0.0/16）要访问 httpd-svc，则允许。
+
+  - 其他源地址访问 httpd-svc，跳转到规则 KUBE-SVC-RL3JAE4GN7VOGDGP。
+
+KUBE-SVC-RL3JAE4GN7VOGDGP 规则如下：
+
 
 
 
