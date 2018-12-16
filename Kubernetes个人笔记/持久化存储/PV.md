@@ -163,7 +163,7 @@ total 4
 如果上面出现了 test.txt 的文件，那么证明我们的 nfs 挂载成功了。
 
 
-## PV
+## 创建PV
 有了上面的 NFS 共享存储，下面我们就可以来使用 PV 和 PVC 了。PV 作为存储资源，主要包括存储能力、访问模式、存储类型、回收策略等关键信息，下面我们来新建一个 PV 对象，使用 nfs 类型的后端存储，1G 的存储空间，访问模式为 ReadWriteOnce，回收策略为 Recyle，对应的 YAML 文件如下：(pv1-demo.yaml)
 ```yaml
 apiVersion: v1
@@ -275,3 +275,34 @@ PV 还支持 Delete 的回收策略，会删除 PV 在 Storage Provider 上对�
 * Failed（失败）： 表示该 PV 的自动回收失败
 
 这就是 PV 的声明方法，下节课我们来和大家一起学习下 PVC 的使用方法。
+
+
+## PV 动态供给
+
+前面的例子中，我们提前创建了 PV，然后通过 PVC 申请 PV 并在 Pod 中使用，这种方式叫做静态供给（Static Provision）。
+
+与之对应的是动态供给（Dynamical Provision），即如果没有满足 PVC 条件的 PV，会动态创建 PV。相比静态供给，动态供给有明显的优势：不需要提前创建 PV，减少了管理员的工作量，效率高。
+
+动态供给是通过 StorageClass 实现的，StorageClass 定义了如何创建 PV，下面是两个例子。
+
+StorageClass standard：
+
+![pv-1](/assets/pv-7.PNG)
+
+StorageClass slow：
+
+![pv-1](/assets/pv-8.PNG)
+
+这两个 StorageClass 都会动态创建 AWS EBS，不同在于 standard 创建的是 gp2 类型的 EBS，而 slow 创建的是 io1 类型的 EBS。不同类型的 EBS 支持的参数可参考 AWS 官方文档。
+
+StorageClass 支持 Delete 和 Retain 两种 reclaimPolicy，默认是 Delete。
+
+与之前一样，PVC 在申请 PV 时，只需要指定 StorageClass 和容量以及访问模式，比如：
+
+![pv-1](/assets/pv-9.PNG)
+
+除了 AWS EBS，Kubernetes 支持其他多种动态供给 PV 的 Provisioner，完整列表请参考 https://kubernetes.io/docs/concepts/storage/storage-classes/#provisioner
+
+
+
+
