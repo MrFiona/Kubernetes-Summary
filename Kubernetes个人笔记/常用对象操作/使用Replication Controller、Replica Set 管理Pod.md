@@ -1,0 +1,1 @@
+# 使用Replication Controller、Replica Set 管理Pod
