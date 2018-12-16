@@ -22,6 +22,8 @@
         * [部署 Wordpress 示例](Kubernetes个人笔记/常用对象操作/Job/部署 Wordpress 示例.md)
         * [DaemonSet/StatefulSet的使用](Kubernetes个人笔记/常用对象操作/Job/DaemonSet/StatefulSet的使用.md)
     * [持久化存储](Kubernetes个人笔记/持久化存储.md)
+        * [PV](Kubernetes个人笔记/持久化存储/PV.md)
+
 
 
 
