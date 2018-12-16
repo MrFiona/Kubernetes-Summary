@@ -16,6 +16,21 @@
         * [Deployment](Kubernetes个人笔记/常用对象操作/Deployment.md)
         * [Pod自动扩缩容](Kubernetes个人笔记/常用对象操作/Pod 自动扩缩容.md)
         * [Job/Cronjob](Kubernetes个人笔记/常用对象操作/Job/Cronjob.md)
+        * [Service](Kubernetes个人笔记/常用对象操作/Job/Service.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
