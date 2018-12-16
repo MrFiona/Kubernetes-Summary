@@ -197,5 +197,13 @@ KUBE-SVC-PG7U6NWYNWEVV50B 规则如下：
 - 1/2 的概率跳转到规则 KUBE-SEP-NXUPZSXECK45VXWX。
 - 1/2 的概率跳转到规则 KUBE-SEP-NFFTFQ5CNTTL2FEL。
 
-上面三个跳转的规则如下：
+上面两个个跳转的规则如下：
+
+![挑选pod](/assets/service3.PNG)
+
+即将请求分别转发到后端的两个 Pod。通过上面的分析，我们得到如下结论：
+
+iptables 将访问 Service 的流量转发到后端 Pod，而且使用类似轮询的负载均衡策略。另外需要补充一点：Cluster 的每一个节点都配置了相同的 iptables 规则，这样就确保了整个 Cluster 都能够通过 Service 的 Cluster IP 访问 Service。
+
+![挑选pod](/assets/service4.PNG)
 
