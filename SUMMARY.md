@@ -12,7 +12,8 @@
         * [初始化容器](Kubernetes个人笔记/深入理解pod/初始化容器.md)
         
     * [常用对象操作](Kubernetes个人笔记/常用对象操作.md)
-        * [使用Replication Controller、Replica Set 管理Pod](Kubernetes个人笔记/常用对象操作/使用Replication Controller、Replica Set 管理Pod.md)
+        * [Replication Controller](Kubernetes个人笔记/常用对象操作/Replication Controller.md)
+        * [Deployment](Kubernetes个人笔记/常用对象操作/Deployment.md)
 
 
 
