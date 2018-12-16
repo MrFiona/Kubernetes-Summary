@@ -299,7 +299,7 @@ StorageClass 支持 Delete 和 Retain 两种 reclaimPolicy，默认是 Delete。
 
 与之前一样，PVC 在申请 PV 时，只需要指定 StorageClass 和容量以及访问模式，比如：
 
-![pv-1](/assets/pv-9.PNG)
+![pv-1](/assets/pv9.PNG)
 
 除了 AWS EBS，Kubernetes 支持其他多种动态供给 PV 的 Provisioner，完整列表请参考 https://kubernetes.io/docs/concepts/storage/storage-classes/#provisioner
 
