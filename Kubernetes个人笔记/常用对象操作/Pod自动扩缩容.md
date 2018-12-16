@@ -3,7 +3,7 @@
 
 幸运的是`Kubernetes`为我们提供了这样一个资源对象：`Horizontal Pod Autoscaling`（Pod水平自动伸缩），简称`HPA`。`HAP`通过监控分析`RC`或者`Deployment`控制的所有`Pod`的负载变化情况来确定是否需要调整`Pod`的副本数量，这是`HPA`最基本的原理。
 
-![hpa](./assets/horizontal-pod-autoscaler.svg)
+![hpa](/assets/horizontal-pod-autoscaler.svg)
 
 `HPA`在`kubernetes`集群中被设计成一个`controller`，我们可以简单的通过`kubectl autoscale`命令来创建一个`HPA`资源对象，`HPA Controller`默认30s轮询一次（可通过`kube-controller-manager`的标志`--horizontal-pod-autoscaler-sync-period`进行设置），查询指定的资源（RC或者Deployment）中`Pod`的资源使用率，并且与创建时设定的值和指标做对比，从而实现自动伸缩的功能。
 
