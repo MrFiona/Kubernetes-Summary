@@ -269,4 +269,8 @@ targetPort 是 Pod 监听的端口即容器的服务端口。
 
 应用新的 nodePort 并验证：
 
+![挑选pod](/assets/service13.PNG)
+
+
+
 
