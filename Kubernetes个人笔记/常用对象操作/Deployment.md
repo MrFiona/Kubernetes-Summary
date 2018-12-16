@@ -247,7 +247,7 @@ metadata:                        #metadata 是该资源的元数据，name 是�
   labels:
     app: cango-demo              #标签
 spec:                            #spec 部分是该 Deployment 的规格说明
-  replicas: 3
+  replicas: 3                    #replicas 指明副本数量，默认为 1
    strategy:
     rollingUpdate:  ##由于replicas为3,则整个升级,pod个数在2-4个之间
       maxSurge: 1      #滚动升级时会先启动1个pod
