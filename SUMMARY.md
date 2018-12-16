@@ -24,7 +24,6 @@
     * [持久化存储](Kubernetes个人笔记/持久化存储.md)
         * [PV](Kubernetes个人笔记/持久化存储/PV.md)
         * [PVC](Kubernetes个人笔记/持久化存储/PVC.md)
-        * [PVC](Kubernetes个人笔记/持久化存储/PVC.md)
 
 
 
