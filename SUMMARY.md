@@ -19,6 +19,59 @@
         * [Service](Kubernetes个人笔记/常用对象操作/Job/Service.md)
         * [ConfigMap](Kubernetes个人笔记/常用对象操作/Job/ConfigMap.md)
         * [Secret](Kubernetes个人笔记/常用对象操作/Job/Secret.md)
+        * [RBAC](Kubernetes个人笔记/常用对象操作/Job/RBAC.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
