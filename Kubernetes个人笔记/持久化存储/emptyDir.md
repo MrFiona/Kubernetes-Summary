@@ -8,4 +8,5 @@ emptyDir Volume 对于容器来说是持久的，对于 Pod 则不是。当 Pod 
 
 Pod 中的所有容器都可以共享 Volume，它们可以指定各自的 mount 路径。下面通过例子来实践 emptyDir，配置文件如下：
 
-![存储-1](/assets/存储-1.PNG)
+![存储-1](/assets/存储1.PNG)
+
