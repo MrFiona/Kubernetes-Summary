@@ -252,7 +252,7 @@ spec:                            #spec 部分是该 Deployment 的规格说明
     rollingUpdate:  ##由于replicas为3,则整个升级,pod个数在2-4个之间
       maxSurge: 1      #滚动升级时会先启动1个pod
       maxUnavailable: 1 #滚动升级时允许的最大Unavailable的pod个数
-  template:         
+  template:                      #template 定义 Pod 的模板，这是配置文件的重要部分
     metadata:
       labels:
         app: cango-demo  #模板名称必填
