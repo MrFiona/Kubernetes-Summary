@@ -138,4 +138,6 @@ Kubernetes Service 从逻辑上代表了一组 Pod，具体是哪些 Pod 则是�
 
 我们启动了三个 Pod，运行 httpd 镜像，label 是 run: httpd，Service 将会用这个 label 来挑选 Pod。
 
+![创建Deployment](/assets/640 (1).webp)
+
 
