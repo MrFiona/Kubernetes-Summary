@@ -7,3 +7,5 @@
 
 
 http://docs.kubernetes.org.cn/683.html kubernetes中文文档
+
+https://kubernetes.io/zh/docs/concepts/services-networking/service/ kubernetes官方文档
