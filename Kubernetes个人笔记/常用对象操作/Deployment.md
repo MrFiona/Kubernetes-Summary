@@ -239,14 +239,14 @@ deployment "nginx-deploy" rolled back
 
 ```json
 
-apiVersion: extensions/v1beta1   #接口版本
-kind: Deployment                 #接口类型
-metadata:
+apiVersion: extensions/v1beta1   #apiVersion 是当前配置格式的版本
+kind: Deployment                 #kind 是要创建的资源类型，这里是 Deployment
+metadata:                        #metadata 是该资源的元数据，name 是必需的元数据项。
   name: cango-demo               #Deployment名称
   namespace: cango-prd           #命名空间
   labels:
     app: cango-demo              #标签
-spec:
+spec:                            #spec 部分是该 Deployment 的规格说明
   replicas: 3
    strategy:
     rollingUpdate:  ##由于replicas为3,则整个升级,pod个数在2-4个之间
