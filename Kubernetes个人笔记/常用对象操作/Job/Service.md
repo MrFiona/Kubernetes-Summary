@@ -271,6 +271,6 @@ targetPort 是 Pod 监听的端口即容器的服务端口。
 
 ![挑选pod](/assets/service--13.PNG)
 
-
+nodePort: 30000 已经生效了。
 
 
