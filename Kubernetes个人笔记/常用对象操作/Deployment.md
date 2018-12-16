@@ -183,6 +183,10 @@ Events:
 ## 回滚Deployment
 我们已经能够滚动平滑的升级我们的Deployment了，但是如果升级后的POD出了问题该怎么办？我们能够想到的最好最快的方式当然是回退到上一次能够提供正常工作的版本，Deployment就为我们提供了回滚机制。
 
+kubectl apply 每次更新应用时 Kubernetes 都会记录下当前的配置，保存为一个 revision（版次），这样就可以回滚到某个特定 revision。
+
+默认配置下，Kubernetes 只会保留最近的几个 revision，可以在 Deployment 配置文件中通过 revisionHistoryLimit 属性增加 revision 数量。
+
 首先，查看Deployment的升级历史：
 ```shell
 $ kubectl rollout history deployment nginx-deploy
