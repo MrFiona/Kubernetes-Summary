@@ -186,11 +186,11 @@ Service Cluster IP 是一个虚拟 IP，是由 Kubernetes 节点上的 iptables 
 
 这两条规则的含义是：
 
-  - 如果 Cluster 内的 Pod（源地址来自 10.244.0.0/16）要访问 httpd-svc，则允许。
+  - 如果 Cluster 内的 Pod（源地址来自 172.254.0.0/16）要访问 shb-sf-stg-4c7c8873/anbot-chat，则允许。
 
-  - 其他源地址访问 httpd-svc，跳转到规则 KUBE-SVC-RL3JAE4GN7VOGDGP。
+  - 其他源地址访问 shb-sf-stg-4c7c8873/anbot-chat，跳转到规则 KUBE-SVC-PG7U6NWYNWEVV50B。
 
-KUBE-SVC-RL3JAE4GN7VOGDGP 规则如下：
+KUBE-SVC-PG7U6NWYNWEVV50B 规则如下：
 
 
 
