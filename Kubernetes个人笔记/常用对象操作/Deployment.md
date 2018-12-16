@@ -256,7 +256,7 @@ spec:                            #spec 部分是该 Deployment 的规格说明
     metadata:                    #metadata 定义 Pod 的元数据，至少要定义一个 label。label 的 key 和 value 可以任意指定
       labels:
         app: cango-demo  #模板名称必填
-    sepc: #定义容器模板，该模板可以包含多个容器
+    sepc: #定义容器模板，该模板可以包含多个容器，描述 Pod 的规格，此部分定义 Pod 中每一个容器的属性，name 和 image 是必需的
       containers:                                                                   
         - name: cango-demo                                                           #镜像名称
           image: swr.cn-east-2.myhuaweicloud.com/cango-prd/cango-demo:0.0.1-SNAPSHOT #镜像地址
