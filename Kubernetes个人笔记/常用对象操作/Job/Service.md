@@ -206,3 +206,6 @@ KUBE-SVC-PG7U6NWYNWEVV50B 规则如下：
 iptables 将访问 Service 的流量转发到后端 Pod，而且使用类似轮询的负载均衡策略。另外需要补充一点：Cluster 的每一个节点都配置了相同的 iptables 规则，这样就确保了整个 Cluster 都能够通过 Service 的 Cluster IP 访问 Service。
 
 ![挑选pod](/assets/service-4.PNG)
+
+![挑选pod](/assets/service-5.PNG)
+
